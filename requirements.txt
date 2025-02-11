@@ -2,3 +2,5 @@ Flask
 google-genai
 pykap
 markdown
+Frozen-Flask
+
