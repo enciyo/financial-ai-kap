@@ -16,6 +16,7 @@ This project is a Flask web application that allows users to analyze financial d
 - google-genai
 - pykap
 - markdown
+- Frozen-Flask
 
 ## Installation
 
@@ -56,8 +57,44 @@ This project is a Flask web application that allows users to analyze financial d
 
 ## Deployment
 
-To deploy the application to a production environment, you can use services like Heroku, AWS, or Azure. Make sure to set the necessary environment variables and configure the server to run the Flask application.
+### Deploy to GitHub Pages
 
-## License
+1. Freeze the Flask application:
+   ```sh
+   python freeze.py
+   ```
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+2. Create a `gh-pages` branch and push the static files:
+   ```sh
+   git checkout --orphan gh-pages
+   git reset --hard
+   git add build/*
+   git commit -m "Deploy to GitHub Pages"
+   git push origin gh-pages
+   ```
+
+3. Configure GitHub Pages:
+   Go to the repository settings on GitHub, scroll down to the "GitHub Pages" section, and select the `gh-pages` branch as the source.
+
+Your static site should now be available at `https://yourusername.github.io/financial-ai-analysis`.
+
+### GitHub Actions Deployment
+
+This project includes a GitHub Actions workflow to automate the freezing and deployment process.
+
+1. Ensure the workflow file is located at `.github/workflows/deploy.yml`.
+
+2. Push your changes to the `main` branch:
+   ```sh
+   git add .
+   git commit -m "Set up GitHub Actions for deployment"
+   git push origin main
+   ```
+
+
+
+
+
+
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.## License3. The GitHub Actions workflow will automatically freeze the Flask application and deploy it to GitHub Pages.

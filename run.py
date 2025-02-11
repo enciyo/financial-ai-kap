@@ -6,9 +6,12 @@ from pandas import DataFrame
 from pykap.bist import BISTCompany
 import markdown
 from pykap.bist_company_list import bist_company_list
+from flask_frozen import Freezer
 
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', 'supersecretkey')  # Use environment variable for secret key
+
+freezer = Freezer(app)
 
 api_key_cache = {}
 
@@ -53,6 +56,7 @@ def get_ai_result(data: dict):
     response_html = markdown.markdown(response.text)
     return response_html
 
+
 def get_symbols():
     return bist_company_list()
 
@@ -74,4 +78,7 @@ def fetch_data_for_symbols(symbols):
 
 
 if __name__ == '__main__':
-    app.run(debug=os.environ.get('FLASK_DEBUG', False))
+    if os.environ.get('FREEZE', 'false').lower() == 'true':
+        freezer.freeze()
+    else:
+        app.run(debug=os.environ.get('FLASK_DEBUG', False))
