@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Data Table</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .table {
+            font-size: 0.8rem;
+        }
+        .table th, .table td {
+            padding: 0.3rem;
+        }
+        #loading {
+            display: none;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <div id="loading">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <div id="content" style="display: none;">
+        <div class="mt-4">
+            <h2>Analysis Result</h2>
+            {{ analysis|safe }}
+        </div>
+        {% for symbol, data_html in data.items() %}
+        <div class="mt-4">
+            <h3>Financial Data for {{ symbol }}</h3>
+            <div class="table-responsive">
+                {{ data_html|safe }}
+            </div>
+        </div>
+        {% endfor %}
+        <div class="text-center mt-4">
+            <a href="{{ url_for('index') }}" class="btn btn-primary">Back</a>
+        </div>
+    </div>
+</div>
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("loading").style.display = "block";
+        document.getElementById("content").style.display = "none";
+        setTimeout(function() {
+            document.getElementById("loading").style.display = "none";
+            document.getElementById("content").style.display = "block";
+        }, 2000); // Simulate loading time
+    });
+</script>
+</body>
+</html>
