@@ -1,17 +1,13 @@
 import os
-import pandas as pd
-from flask import Flask, render_template, request, session, redirect, url_for
-from google.genai.types import Content
-from pandas import DataFrame
-from pykap.bist import BISTCompany
+
 import markdown
+import pandas as pd
+from flask import Flask, render_template, request, session
+from pykap.bist import BISTCompany
 from pykap.bist_company_list import bist_company_list
-from flask_frozen import Freezer
 
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', 'supersecretkey')  # Use environment variable for secret key
-
-freezer = Freezer(app)
 
 api_key_cache = {}
 
@@ -78,7 +74,4 @@ def fetch_data_for_symbols(symbols):
 
 
 if __name__ == '__main__':
-    if os.environ.get('FREEZE', 'false').lower() == 'true':
-        freezer.freeze()
-    else:
-        app.run(debug=os.environ.get('FLASK_DEBUG', False))
+    app.run(debug=os.environ.get('FLASK_DEBUG', False),port=5001)

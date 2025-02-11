@@ -1,6 +1,6 @@
 Flask
-google-genai
-pykap
+pandas
 markdown
-Frozen-Flask
+pykap
+gunicorn
 
