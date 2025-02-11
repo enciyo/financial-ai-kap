@@ -19,6 +19,15 @@ def index():
     return render_template('index.html', api_key=api_key, symbols=symbols)
 
 
+@app.route('/fetch_data', methods=['POST'])
+def fetch_data():
+    symbols = request.json.get('symbols', [])
+    data = fetch_data_for_symbols(symbols)
+    analysis = get_ai_result(data)
+    data_html = {symbol: df.to_html(classes='table table-striped') for symbol, df in data.items()}
+    return {'data': data_html, 'analysis': analysis}
+
+
 @app.route('/table', methods=['GET', 'POST'])
 def table():
     if request.method == 'POST':

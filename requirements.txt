@@ -3,5 +3,4 @@ pandas
 markdown
 pykap
 gunicorn
-google-genai
 
