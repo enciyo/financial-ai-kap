@@ -40,8 +40,6 @@ This project is a Flask web application that allows users to analyze financial d
 4. Set the environment variables:
    ```sh
    export FLASK_APP=run.py
-   export FLASK_ENV=production  # For development use `development`
-   export SECRET_KEY=your_secret_key
    ```
 
 ## Usage
