@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Input Page</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .card-header {
+        background-color: #007bff;
+        color: white;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+      .btn-primary {
+        background-color: #007bff;
+        border: none;
+      }
+      .btn-secondary {
+        background-color: #6c757d;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="container d-flex justify-content-center align-items-center"
+      style="min-height: 100vh"
+    >
+      <div class="card w-50">
+        <div class="card-header text-center">
+          <h1>Bist Gemini Analiz</h1>
+        </div>
+        <div class="card-body">
+          <form id="symbol-form" action="/table" method="post" onsubmit="return validateForm()">
+            <div class="form-group">
+              <label for="api_key">API Key Giriniz</label>
+              <input
+                type="password"
+                class="form-control"
+                id="api_key"
+                name="api_key"
+                placeholder="API Key Giriniz"
+                value=""
+                required
+              />
+              <small class="form-text text-muted">
+                <a href="https://aistudio.google.com/app/apikey" target="_blank">API key almak için tıklayınız</a>
+              </small>
+            </div>
+            <div id="symbol-container">
+              <div class="form-group symbol-input d-flex">
+                <select class="form-control symbol-select" name="symbols[]" required>
+                  <option value="">Sembol Seçiniz</option>
+                  
+                    <option value="AVOD">AVOD</option>
+                  
+                    <option value="A1CAP, ACP">A1CAP, ACP</option>
+                  
+                    <option value="ACSEL">ACSEL</option>
+                  
+                    <option value="ADEL">ADEL</option>
+                  
+                    <option value="ADESE">ADESE</option>
+                  
+                    <option value="AFYON">AFYON</option>
+                  
+                    <option value="AGHOL">AGHOL</option>
+                  
+                    <option value="AKSFA">AKSFA</option>
+                  
+                    <option value="AKM, AKMEN">AKM, AKMEN</option>
+                  
+                    <option value="AKBNK">AKBNK</option>
+                  
+                    <option value="AKCNS">AKCNS</option>
+                  
+                    <option value="AKDFA">AKDFA</option>
+                  
+                    <option value="AKYHO">AKYHO</option>
+                  
+                    <option value="AKENR">AKENR</option>
+                  
+                    <option value="AKFGY">AKFGY</option>
+                  
+                    <option value="AKFEN">AKFEN</option>
+                  
+                    <option value="ATEKS">ATEKS</option>
+                  
+                    <option value="AKSGY">AKSGY</option>
+                  
+                    <option value="AKMGY">AKMGY</option>
+                  
+                    <option value="AKSA">AKSA</option>
+                  
+                    <option value="AKSEN">AKSEN</option>
+                  
+                    <option value="AKGRT">AKGRT</option>
+                  
+                    <option value="AKSUE">AKSUE</option>
+                  
+                    <option value="AKTVK">AKTVK</option>
+                  
+                    <option value="AFB, AKTIF">AFB, AKTIF</option>
+                  
+                    <option value="ALCAR">ALCAR</option>
+                  
+                    <option value="ALGYO">ALGYO</option>
+                  
+                    <option value="ALARK">ALARK</option>
+                  
+                    <option value="ALBRK, ALK">ALBRK, ALK</option>
+                  
+                    <option value="ALCTL">ALCTL</option>
+                  
+                    <option value="ALJF">ALJF</option>
+                  
+                    <option value="ALKIM">ALKIM</option>
+                  
+                    <option value="ALKA">ALKA</option>
+                  
+                    <option value="ALNTF, ANF">ALNTF, ANF</option>
+                  
+                    <option value="AYCES">AYCES</option>
+                  
+                    <option value="ALMAD">ALMAD</option>
+                  
+                    <option value="ANSGR">ANSGR</option>
+                  
+                    <option value="AEFES">AEFES</option>
+                  
+                    <option value="ANHYT">ANHYT</option>
+                  
+                    <option value="ASUZU">ASUZU</option>
+                  
+                    <option value="ANELE">ANELE</option>
+                  
+                    <option value="ARCLK">ARCLK</option>
+                  
+                    <option value="ARDYZ">ARDYZ</option>
+                  
+                    <option value="ARENA">ARENA</option>
+                  
+                    <option value="ARNFK">ARNFK</option>
+                  
+                    <option value="ARMDA">ARMDA</option>
+                  
+                    <option value="ARSAN">ARSAN</option>
+                  
+                    <option value="ARZUM">ARZUM</option>
+                  
+                    <option value="ASELS">ASELS</option>
+                  
+                    <option value="ATAGY">ATAGY</option>
+                  
+                    <option value="AGYO">AGYO</option>
+                  
+                    <option value="ATLFA">ATLFA</option>
+                  
+                    <option value="ATSYH">ATSYH</option>
+                  
+                    <option value="ATLAS">ATLAS</option>
+                  
+                    <option value="AVISA">AVISA</option>
+                  
+                    <option value="AVGYO">AVGYO</option>
+                  
+                    <option value="AVTUR">AVTUR</option>
+                  
+                    <option value="AVHOL">AVHOL</option>
+                  
+                    <option value="AYDEM">AYDEM</option>
+                  
+                    <option value="AYEN">AYEN</option>
+                  
+                    <option value="AYES">AYES</option>
+                  
+                    <option value="AYGAZ">AYGAZ</option>
+                  
+                    <option value="BAGFS">BAGFS</option>
+                  
+                    <option value="BAKAB">BAKAB</option>
+                  
+                    <option value="BALAT">BALAT</option>
+                  
+                    <option value="BNTAS">BNTAS</option>
+                  
+                    <option value="BANVT">BANVT</option>
+                  
+                    <option value="BSRFK">BSRFK</option>
+                  
+                    <option value="BASCM">BASCM</option>
+                  
+                    <option value="BTCIM">BTCIM</option>
+                  
+                    <option value="BSOKE">BSOKE</option>
+                  
+                    <option value="BAYRK">BAYRK</option>
+                  
+                    <option value="BERA">BERA</option>
+                  
+                    <option value="BRKT">BRKT</option>
+                  
+                    <option value="BRKSN">BRKSN</option>
+                  
+                    <option value="BJKAS">BJKAS</option>
+                  
+                    <option value="BEYAZ">BEYAZ</option>
+                  
+                    <option value="BLCYT">BLCYT</option>
+                  
+                    <option value="BIMAS">BIMAS</option>
+                  
+                    <option value="BIOEN">BIOEN</option>
+                  
+                    <option value="BRKVY">BRKVY</option>
+                  
+                    <option value="BRKO">BRKO</option>
+                  
+                    <option value="BRMEN">BRMEN</option>
+                  
+                    <option value="BIZIM">BIZIM</option>
+                  
+                    <option value="BNPFK">BNPFK</option>
+                  
+                    <option value="BOGVY">BOGVY</option>
+                  
+                    <option value="BRSAN">BRSAN</option>
+                  
+                    <option value="BRYAT">BRYAT</option>
+                  
+                    <option value="BFREN">BFREN</option>
+                  
+                    <option value="BOSSA">BOSSA</option>
+                  
+                    <option value="BRISA">BRISA</option>
+                  
+                    <option value="BURCE">BURCE</option>
+                  
+                    <option value="BURVA">BURVA</option>
+                  
+                    <option value="BUCIM">BUCIM</option>
+                  
+                    <option value="CRFSA">CRFSA</option>
+                  
+                    <option value="CASA">CASA</option>
+                  
+                    <option value="CEOEM">CEOEM</option>
+                  
+                    <option value="CCOLA">CCOLA</option>
+                  
+                    <option value="COSMO">COSMO</option>
+                  
+                    <option value="CRDFA">CRDFA</option>
+                  
+                    <option value="CANTE">CANTE</option>
+                  
+                    <option value="CLEBI">CLEBI</option>
+                  
+                    <option value="CELHA">CELHA</option>
+                  
+                    <option value="CEMAS">CEMAS</option>
+                  
+                    <option value="CEMTS">CEMTS</option>
+                  
+                    <option value="CMBTN">CMBTN</option>
+                  
+                    <option value="CMENT">CMENT</option>
+                  
+                    <option value="CIMSA">CIMSA</option>
+                  
+                    <option value="CUSAN">CUSAN</option>
+                  
+                    <option value="DAGI">DAGI</option>
+                  
+                    <option value="DAGHL">DAGHL</option>
+                  
+                    <option value="DARDL">DARDL</option>
+                  
+                    <option value="DGATE">DGATE</option>
+                  
+                    <option value="DMSAS">DMSAS</option>
+                  
+                    <option value="DENGE">DENGE</option>
+                  
+                    <option value="DENFA">DENFA</option>
+                  
+                    <option value="DNFIN">DNFIN</option>
+                  
+                    <option value="DZGYO">DZGYO</option>
+                  
+                    <option value="DZY, DZYMK">DZY, DZYMK</option>
+                  
+                    <option value="DENIZ, DNZ">DENIZ, DNZ</option>
+                  
+                    <option value="DERIM">DERIM</option>
+                  
+                    <option value="DERHL">DERHL</option>
+                  
+                    <option value="DESA">DESA</option>
+                  
+                    <option value="DESPC">DESPC</option>
+                  
+                    <option value="DEVA">DEVA</option>
+                  
+                    <option value="DEVIR">DEVIR</option>
+                  
+                    <option value="DNISI">DNISI</option>
+                  
+                    <option value="DIRIT">DIRIT</option>
+                  
+                    <option value="DITAS">DITAS</option>
+                  
+                    <option value="DOCO">DOCO</option>
+                  
+                    <option value="DOBUR">DOBUR</option>
+                  
+                    <option value="DOHOL">DOHOL</option>
+                  
+                    <option value="DGKLB">DGKLB</option>
+                  
+                    <option value="DOGUB">DOGUB</option>
+                  
+                    <option value="DGGYO">DGGYO</option>
+                  
+                    <option value="DGHOL">DGHOL</option>
+                  
+                    <option value="DOAS">DOAS</option>
+                  
+                    <option value="DFKTR">DFKTR</option>
+                  
+                    <option value="DOKTA">DOKTA</option>
+                  
+                    <option value="DURDO">DURDO</option>
+                  
+                    <option value="DNYVA">DNYVA</option>
+                  
+                    <option value="DYOBY">DYOBY</option>
+                  
+                    <option value="ECZYT">ECZYT</option>
+                  
+                    <option value="EDIP">EDIP</option>
+                  
+                    <option value="EGEEN">EGEEN</option>
+                  
+                    <option value="EGGUB">EGGUB</option>
+                  
+                    <option value="EGPRO">EGPRO</option>
+                  
+                    <option value="EGSER">EGSER</option>
+                  
+                    <option value="EPLAS">EPLAS</option>
+                  
+                    <option value="ECILC">ECILC</option>
+                  
+                    <option value="EKIZ">EKIZ</option>
+                  
+                    <option value="EKOFA">EKOFA</option>
+                  
+                    <option value="EMKEL">EMKEL</option>
+                  
+                    <option value="EMNIS">EMNIS</option>
+                  
+                    <option value="EKTVK">EKTVK</option>
+                  
+                    <option value="EKGYO">EKGYO</option>
+                  
+                    <option value="ENJSA">ENJSA</option>
+                  
+                    <option value="ENKAI">ENKAI</option>
+                  
+                    <option value="ERBOS">ERBOS</option>
+                  
+                    <option value="EREGL">EREGL</option>
+                  
+                    <option value="ERGLI">ERGLI</option>
+                  
+                    <option value="EROGL">EROGL</option>
+                  
+                    <option value="ERSU">ERSU</option>
+                  
+                    <option value="ESCOM">ESCOM</option>
+                  
+                    <option value="ESEN">ESEN</option>
+                  
+                    <option value="ETILR">ETILR</option>
+                  
+                    <option value="EUKYO">EUKYO</option>
+                  
+                    <option value="EUYO">EUYO</option>
+                  
+                    <option value="ETYAT">ETYAT</option>
+                  
+                    <option value="EUHOL">EUHOL</option>
+                  
+                    <option value="FADE">FADE</option>
+                  
+                    <option value="FMIZP">FMIZP</option>
+                  
+                    <option value="FENER">FENER</option>
+                  
+                    <option value="FIBAF">FIBAF</option>
+                  
+                    <option value="FBB, FBBNK">FBB, FBBNK</option>
+                  
+                    <option value="FLAP">FLAP</option>
+                  
+                    <option value="FONET">FONET</option>
+                  
+                    <option value="FROTO">FROTO</option>
+                  
+                    <option value="FORMT">FORMT</option>
+                  
+                    <option value="FRIGO">FRIGO</option>
+                  
+                    <option value="GWIND">GWIND</option>
+                  
+                    <option value="GSRAY">GSRAY</option>
+                  
+                    <option value="GARFA">GARFA</option>
+                  
+                    <option value="GRFIN">GRFIN</option>
+                  
+                    <option value="GRNYO">GRNYO</option>
+                  
+                    <option value="GEDIK">GEDIK</option>
+                  
+                    <option value="GEDZA">GEDZA</option>
+                  
+                    <option value="GLCVY">GLCVY</option>
+                  
+                    <option value="GENTS">GENTS</option>
+                  
+                    <option value="GEREL">GEREL</option>
+                  
+                    <option value="GLB, GLBMD">GLB, GLBMD</option>
+                  
+                    <option value="GLYHO">GLYHO</option>
+                  
+                    <option value="GOODY">GOODY</option>
+                  
+                    <option value="GOLTS">GOLTS</option>
+                  
+                    <option value="GOZDE">GOZDE</option>
+                  
+                    <option value="GSDDE">GSDDE</option>
+                  
+                    <option value="GSDHO">GSDHO</option>
+                  
+                    <option value="GUBRF">GUBRF</option>
+                  
+                    <option value="GLRYH">GLRYH</option>
+                  
+                    <option value="SAHOL">SAHOL</option>
+                  
+                    <option value="HALKF">HALKF</option>
+                  
+                    <option value="HLGYO">HLGYO</option>
+                  
+                    <option value="HLVKS">HLVKS</option>
+                  
+                    <option value="HATEK">HATEK</option>
+                  
+                    <option value="HDFGS">HDFGS</option>
+                  
+                    <option value="HEKTS">HEKTS</option>
+                  
+                    <option value="HSB, HSBCB">HSB, HSBCB</option>
+                  
+                    <option value="HUBVC">HUBVC</option>
+                  
+                    <option value="HUZFA">HUZFA</option>
+                  
+                    <option value="HURGZ">HURGZ</option>
+                  
+                    <option value="ICB, ICBCT">ICB, ICBCT</option>
+                  
+                    <option value="INVEO">INVEO</option>
+                  
+                    <option value="ISKPL">ISKPL</option>
+                  
+                    <option value="IEYHO">IEYHO</option>
+                  
+                    <option value="IDEAS">IDEAS</option>
+                  
+                    <option value="IDGYO">IDGYO</option>
+                  
+                    <option value="IHEVA">IHEVA</option>
+                  
+                    <option value="IHLGM">IHLGM</option>
+                  
+                    <option value="IHGZT">IHGZT</option>
+                  
+                    <option value="IHLAS">IHLAS</option>
+                  
+                    <option value="IHYAY">IHYAY</option>
+                  
+                    <option value="INDES">INDES</option>
+                  
+                    <option value="INFO, IYF">INFO, IYF</option>
+                  
+                    <option value="INTEM">INTEM</option>
+                  
+                    <option value="IPEKE">IPEKE</option>
+                  
+                    <option value="ISDMR">ISDMR</option>
+                  
+                    <option value="ISFAK">ISFAK</option>
+                  
+                    <option value="ISFIN">ISFIN</option>
+                  
+                    <option value="ISGYO">ISGYO</option>
+                  
+                    <option value="ISGSY">ISGSY</option>
+                  
+                    <option value="ISMEN, IYM">ISMEN, IYM</option>
+                  
+                    <option value="ISYAT">ISYAT</option>
+                  
+                    <option value="ISBIR">ISBIR</option>
+                  
+                    <option value="ITTFH">ITTFH</option>
+                  
+                    <option value="IZTAR">IZTAR</option>
+                  
+                    <option value="IZMDC">IZMDC</option>
+                  
+                    <option value="IZFAS">IZFAS</option>
+                  
+                    <option value="JANTS">JANTS</option>
+                  
+                    <option value="KFEIN">KFEIN</option>
+                  
+                    <option value="KLKIM">KLKIM</option>
+                  
+                    <option value="KALES">KALES</option>
+                  
+                    <option value="KAPTESTAS001, TRAKAPTEST01">KAPTESTAS001, TRAKAPTEST01</option>
+                  
+                    <option value="KAPLM">KAPLM</option>
+                  
+                    <option value="KRDMA, KRDMB, KRDMD">KRDMA, KRDMB, KRDMD</option>
+                  
+                    <option value="KAREL">KAREL</option>
+                  
+                    <option value="KARSN">KARSN</option>
+                  
+                    <option value="KRTEK">KRTEK</option>
+                  
+                    <option value="KARTN">KARTN</option>
+                  
+                    <option value="KATMR">KATMR</option>
+                  
+                    <option value="KNTFA">KNTFA</option>
+                  
+                    <option value="KENT">KENT</option>
+                  
+                    <option value="KERVT">KERVT</option>
+                  
+                    <option value="KRVGD">KRVGD</option>
+                  
+                    <option value="KERVN">KERVN</option>
+                  
+                    <option value="KLGYO">KLGYO</option>
+                  
+                    <option value="KLMSN">KLMSN</option>
+                  
+                    <option value="KFKTF">KFKTF</option>
+                  
+                    <option value="KOCFN">KOCFN</option>
+                  
+                    <option value="KCHOL">KCHOL</option>
+                  
+                    <option value="KNFRT">KNFRT</option>
+                  
+                    <option value="KONTR">KONTR</option>
+                  
+                    <option value="KONYA">KONYA</option>
+                  
+                    <option value="KORDS">KORDS</option>
+                  
+                    <option value="KORTS">KORTS</option>
+                  
+                    <option value="KOZAL">KOZAL</option>
+                  
+                    <option value="KOZAA">KOZAA</option>
+                  
+                    <option value="KRGYO">KRGYO</option>
+                  
+                    <option value="KRSTL">KRSTL</option>
+                  
+                    <option value="KRONT">KRONT</option>
+                  
+                    <option value="KTKVK">KTKVK</option>
+                  
+                    <option value="KSTUR">KSTUR</option>
+                  
+                    <option value="KUYAS">KUYAS</option>
+                  
+                    <option value="KUTPO">KUTPO</option>
+                  
+                    <option value="LIDFA">LIDFA</option>
+                  
+                    <option value="LINK">LINK</option>
+                  
+                    <option value="LOGO">LOGO</option>
+                  
+                    <option value="LKMNH">LKMNH</option>
+                  
+                    <option value="LUKSK">LUKSK</option>
+                  
+                    <option value="MAKTK">MAKTK</option>
+                  
+                    <option value="MARKA">MARKA</option>
+                  
+                    <option value="MAALT">MAALT</option>
+                  
+                    <option value="MRSHL">MRSHL</option>
+                  
+                    <option value="MRGYO">MRGYO</option>
+                  
+                    <option value="MARTI">MARTI</option>
+                  
+                    <option value="MTRKS">MTRKS</option>
+                  
+                    <option value="MAVI">MAVI</option>
+                  
+                    <option value="MZHLD">MZHLD</option>
+                  
+                    <option value="MEGAP">MEGAP</option>
+                  
+                    <option value="MNDRS">MNDRS</option>
+                  
+                    <option value="MEPET">MEPET</option>
+                  
+                    <option value="MBFTR">MBFTR</option>
+                  
+                    <option value="MERIT">MERIT</option>
+                  
+                    <option value="MERKO">MERKO</option>
+                  
+                    <option value="METUR">METUR</option>
+                  
+                    <option value="METRO">METRO</option>
+                  
+                    <option value="MTRYO">MTRYO</option>
+                  
+                    <option value="MGROS">MGROS</option>
+                  
+                    <option value="MIPAZ">MIPAZ</option>
+                  
+                    <option value="MSGYO">MSGYO</option>
+                  
+                    <option value="MPARK">MPARK</option>
+                  
+                    <option value="MMCAS">MMCAS</option>
+                  
+                    <option value="TIRE">TIRE</option>
+                  
+                    <option value="NATEN">NATEN</option>
+                  
+                    <option value="NTGAZ">NTGAZ</option>
+                  
+                    <option value="NTHOL">NTHOL</option>
+                  
+                    <option value="NETAS">NETAS</option>
+                  
+                    <option value="NIBAS">NIBAS</option>
+                  
+                    <option value="NUHCM">NUHCM</option>
+                  
+                    <option value="NUGYO">NUGYO</option>
+                  
+                    <option value="NRHOL">NRHOL</option>
+                  
+                    <option value="NURVK">NURVK</option>
+                  
+                    <option value="NRBNK, NYB">NRBNK, NYB</option>
+                  
+                    <option value="ODAS">ODAS</option>
+                  
+                    <option value="ODB, ODEA">ODB, ODEA</option>
+                  
+                    <option value="OLMIP">OLMIP</option>
+                  
+                    <option value="OPET">OPET</option>
+                  
+                    <option value="ORFIN">ORFIN</option>
+                  
+                    <option value="ORGE">ORGE</option>
+                  
+                    <option value="ORMA">ORMA</option>
+                  
+                    <option value="OMD, OSMEN">OMD, OSMEN</option>
+                  
+                    <option value="OSTIM">OSTIM</option>
+                  
+                    <option value="OTKAR">OTKAR</option>
+                  
+                    <option value="OTOKC">OTOKC</option>
+                  
+                    <option value="OYAKC">OYAKC</option>
+                  
+                    <option value="OYA, OYYAT">OYA, OYYAT</option>
+                  
+                    <option value="OYAYO">OYAYO</option>
+                  
+                    <option value="OYLUM">OYLUM</option>
+                  
+                    <option value="OZKGY">OZKGY</option>
+                  
+                    <option value="OZBAL">OZBAL</option>
+                  
+                    <option value="OZGYO">OZGYO</option>
+                  
+                    <option value="OZRDN">OZRDN</option>
+                  
+                    <option value="PLGAZ">PLGAZ</option>
+                  
+                    <option value="PAMEL">PAMEL</option>
+                  
+                    <option value="PAGYO">PAGYO</option>
+                  
+                    <option value="PAPIL">PAPIL</option>
+                  
+                    <option value="PRKME">PRKME</option>
+                  
+                    <option value="PARSN">PARSN</option>
+                  
+                    <option value="PBT, PBTR">PBT, PBTR</option>
+                  
+                    <option value="PGSUS">PGSUS</option>
+                  
+                    <option value="PEKGY">PEKGY</option>
+                  
+                    <option value="PENGD">PENGD</option>
+                  
+                    <option value="PENTA">PENTA</option>
+                  
+                    <option value="PEGYO">PEGYO</option>
+                  
+                    <option value="PSDTC">PSDTC</option>
+                  
+                    <option value="PETKM">PETKM</option>
+                  
+                    <option value="PKENT">PKENT</option>
+                  
+                    <option value="PHC, PHLLP">PHC, PHLLP</option>
+                  
+                    <option value="PETUN">PETUN</option>
+                  
+                    <option value="PINSU">PINSU</option>
+                  
+                    <option value="PNSUT">PNSUT</option>
+                  
+                    <option value="PKART">PKART</option>
+                  
+                    <option value="POLHO">POLHO</option>
+                  
+                    <option value="POLTK">POLTK</option>
+                  
+                    <option value="PRZMA">PRZMA</option>
+                  
+                    <option value="QNBFF">QNBFF</option>
+                  
+                    <option value="QNBFL">QNBFL</option>
+                  
+                    <option value="QNBVK">QNBVK</option>
+                  
+                    <option value="FNY, QNBFI">FNY, QNBFI</option>
+                  
+                    <option value="FIN, QNBFB">FIN, QNBFB</option>
+                  
+                    <option value="QUAGR">QUAGR</option>
+                  
+                    <option value="RALYH">RALYH</option>
+                  
+                    <option value="RAYSG">RAYSG</option>
+                  
+                    <option value="RYGYO">RYGYO</option>
+                  
+                    <option value="RYSAS">RYSAS</option>
+                  
+                    <option value="RHEAG">RHEAG</option>
+                  
+                    <option value="RODRG">RODRG</option>
+                  
+                    <option value="ROYAL">ROYAL</option>
+                  
+                    <option value="RTALB">RTALB</option>
+                  
+                    <option value="SAFKR">SAFKR</option>
+                  
+                    <option value="SANEL">SANEL</option>
+                  
+                    <option value="SANFM">SANFM</option>
+                  
+                    <option value="SANKO">SANKO</option>
+                  
+                    <option value="SAMAT">SAMAT</option>
+                  
+                    <option value="SARKY">SARKY</option>
+                  
+                    <option value="SARTN">SARTN</option>
+                  
+                    <option value="SASA">SASA</option>
+                  
+                    <option value="SAYAS">SAYAS</option>
+                  
+                    <option value="SEKUR">SEKUR</option>
+                  
+                    <option value="SELEC">SELEC</option>
+                  
+                    <option value="SELGD">SELGD</option>
+                  
+                    <option value="SNKRN">SNKRN</option>
+                  
+                    <option value="SERVE">SERVE</option>
+                  
+                    <option value="SRVGY">SRVGY</option>
+                  
+                    <option value="SEYKM">SEYKM</option>
+                  
+                    <option value="SILVR">SILVR</option>
+                  
+                    <option value="SNGYO">SNGYO</option>
+                  
+                    <option value="SMART">SMART</option>
+                  
+                    <option value="SODSN">SODSN</option>
+                  
+                    <option value="SKTAS">SKTAS</option>
+                  
+                    <option value="SONME">SONME</option>
+                  
+                    <option value="SNPAM">SNPAM</option>
+                  
+                    <option value="SUMAS">SUMAS</option>
+                  
+                    <option value="SZUKI">SZUKI</option>
+                  
+                    <option value="SMRFA">SMRFA</option>
+                  
+                    <option value="SMRVA">SMRVA</option>
+                  
+                    <option value="SEKFA">SEKFA</option>
+                  
+                    <option value="SEKFK">SEKFK</option>
+                  
+                    <option value="SKY, SKYMD">SKY, SKYMD</option>
+                  
+                    <option value="SEK, SKBNK">SEK, SKBNK</option>
+                  
+                    <option value="SOKM">SOKM</option>
+                  
+                    <option value="TOKI">TOKI</option>
+                  
+                    <option value="TCZ, TCZB">TCZ, TCZB</option>
+                  
+                    <option value="TAC, TCRYT">TAC, TCRYT</option>
+                  
+                    <option value="TACTR">TACTR</option>
+                  
+                    <option value="TAMFA">TAMFA</option>
+                  
+                    <option value="TKHOL">TKHOL</option>
+                  
+                    <option value="TATGD">TATGD</option>
+                  
+                    <option value="TAVHL">TAVHL</option>
+                  
+                    <option value="TKURU">TKURU</option>
+                  
+                    <option value="TEBCE">TEBCE</option>
+                  
+                    <option value="TEKTU">TEKTU</option>
+                  
+                    <option value="TKFEN">TKFEN</option>
+                  
+                    <option value="TKNSA">TKNSA</option>
+                  
+                    <option value="TMPOL">TMPOL</option>
+                  
+                    <option value="STK, TRMNK">STK, TRMNK</option>
+                  
+                    <option value="TFNVK">TFNVK</option>
+                  
+                    <option value="TGSAS">TGSAS</option>
+                  
+                    <option value="TOASO">TOASO</option>
+                  
+                    <option value="TRGYO">TRGYO</option>
+                  
+                    <option value="TLMAN">TLMAN</option>
+                  
+                    <option value="TSPOR">TSPOR</option>
+                  
+                    <option value="TDGYO">TDGYO</option>
+                  
+                    <option value="TSGYO">TSGYO</option>
+                  
+                    <option value="TUCLK">TUCLK</option>
+                  
+                    <option value="TUKAS">TUKAS</option>
+                  
+                    <option value="TRCAS">TRCAS</option>
+                  
+                    <option value="TUREX">TUREX</option>
+                  
+                    <option value="TRILC">TRILC</option>
+                  
+                    <option value="FNCLL">FNCLL</option>
+                  
+                    <option value="TCELL">TCELL</option>
+                  
+                    <option value="TBA, TRKSH">TBA, TRKSH</option>
+                  
+                    <option value="TMSN">TMSN</option>
+                  
+                    <option value="TUPRS">TUPRS</option>
+                  
+                    <option value="TEB, TEBNK">TEB, TEBNK</option>
+                  
+                    <option value="THYAO">THYAO</option>
+                  
+                    <option value="PRKAB">PRKAB</option>
+                  
+                    <option value="TTKOM">TTKOM</option>
+                  
+                    <option value="TTRAK">TTRAK</option>
+                  
+                    <option value="TBORG">TBORG</option>
+                  
+                    <option value="TURGG">TURGG</option>
+                  
+                    <option value="GARAN, TGB">GARAN, TGB</option>
+                  
+                    <option value="HALKB, THL">HALKB, THL</option>
+                  
+                    <option value="EXIMB, THR">EXIMB, THR</option>
+                  
+                    <option value="ISATR, ISBTR, ISCTR, ISKUR, TIB">ISATR, ISBTR, ISCTR, ISKUR, TIB</option>
+                  
+                    <option value="KLN, KLNMA">KLN, KLNMA</option>
+                  
+                    <option value="TSK, TSKB">TSK, TSKB</option>
+                  
+                    <option value="TURSG">TURSG</option>
+                  
+                    <option value="SISE">SISE</option>
+                  
+                    <option value="TVB, VAKBN">TVB, VAKBN</option>
+                  
+                    <option value="UFUK">UFUK</option>
+                  
+                    <option value="ULAS">ULAS</option>
+                  
+                    <option value="ULSFA">ULSFA</option>
+                  
+                    <option value="ULUSE">ULUSE</option>
+                  
+                    <option value="ULUUN">ULUUN</option>
+                  
+                    <option value="UMPAS">UMPAS</option>
+                  
+                    <option value="USAK">USAK</option>
+                  
+                    <option value="UTPYA">UTPYA</option>
+                  
+                    <option value="UZERB">UZERB</option>
+                  
+                    <option value="ULKER">ULKER</option>
+                  
+                    <option value="UNLUS, UNS">UNLUS, UNS</option>
+                  
+                    <option value="VAKFA">VAKFA</option>
+                  
+                    <option value="VAKFN">VAKFN</option>
+                  
+                    <option value="VKGYO">VKGYO</option>
+                  
+                    <option value="VKFYO">VKFYO</option>
+                  
+                    <option value="VAKVK">VAKVK</option>
+                  
+                    <option value="VAKKO">VAKKO</option>
+                  
+                    <option value="VANGD">VANGD</option>
+                  
+                    <option value="VERUS">VERUS</option>
+                  
+                    <option value="VERTU">VERTU</option>
+                  
+                    <option value="VESBE">VESBE</option>
+                  
+                    <option value="VESTL">VESTL</option>
+                  
+                    <option value="VKING">VKING</option>
+                  
+                    <option value="YKFKT">YKFKT</option>
+                  
+                    <option value="YKGYO">YKGYO</option>
+                  
+                    <option value="YKR, YKYAT">YKR, YKYAT</option>
+                  
+                    <option value="YKB, YKBNK">YKB, YKBNK</option>
+                  
+                    <option value="YAPRK">YAPRK</option>
+                  
+                    <option value="YATAS">YATAS</option>
+                  
+                    <option value="YAT, YFMEN">YAT, YFMEN</option>
+                  
+                    <option value="YATVK">YATVK</option>
+                  
+                    <option value="YAYLA">YAYLA</option>
+                  
+                    <option value="YDATH">YDATH</option>
+                  
+                    <option value="YGGYO">YGGYO</option>
+                  
+                    <option value="YGYO">YGYO</option>
+                  
+                    <option value="YYAPI">YYAPI</option>
+                  
+                    <option value="YESIL">YESIL</option>
+                  
+                    <option value="YBTAS">YBTAS</option>
+                  
+                    <option value="YONGA">YONGA</option>
+                  
+                    <option value="YKSLN">YKSLN</option>
+                  
+                    <option value="YUNSA">YUNSA</option>
+                  
+                    <option value="ZRGYO">ZRGYO</option>
+                  
+                    <option value="ZKBVK">ZKBVK</option>
+                  
+                    <option value="ZOREN">ZOREN</option>
+                  
+                    <option value="ZORLF">ZORLF</option>
+                  
+                </select>
+              </div>
+              <button type="button" class="btn btn-link ml-2 p-0" id="add-symbol">Yeni Ekle</button>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary">Analiz Et</button>
+            </div>
+          </form>
+          <div id="loading" style="display: none; text-align: center; margin-top: 20px;">
+            <div class="spinner-border" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('.symbol-select').select2();
+      });
+
+      document.getElementById('add-symbol').addEventListener('click', function() {
+        var container = document.getElementById('symbol-container');
+        var inputGroup = document.createElement('div');
+        inputGroup.className = 'form-group symbol-input d-flex mt-2';
+        inputGroup.innerHTML = '<select class="form-control symbol-select" name="symbols[]" required><option value="">Sembol Seçiniz</option><option value="AVOD">AVOD</option><option value="A1CAP, ACP">A1CAP, ACP</option><option value="ACSEL">ACSEL</option><option value="ADEL">ADEL</option><option value="ADESE">ADESE</option><option value="AFYON">AFYON</option><option value="AGHOL">AGHOL</option><option value="AKSFA">AKSFA</option><option value="AKM, AKMEN">AKM, AKMEN</option><option value="AKBNK">AKBNK</option><option value="AKCNS">AKCNS</option><option value="AKDFA">AKDFA</option><option value="AKYHO">AKYHO</option><option value="AKENR">AKENR</option><option value="AKFGY">AKFGY</option><option value="AKFEN">AKFEN</option><option value="ATEKS">ATEKS</option><option value="AKSGY">AKSGY</option><option value="AKMGY">AKMGY</option><option value="AKSA">AKSA</option><option value="AKSEN">AKSEN</option><option value="AKGRT">AKGRT</option><option value="AKSUE">AKSUE</option><option value="AKTVK">AKTVK</option><option value="AFB, AKTIF">AFB, AKTIF</option><option value="ALCAR">ALCAR</option><option value="ALGYO">ALGYO</option><option value="ALARK">ALARK</option><option value="ALBRK, ALK">ALBRK, ALK</option><option value="ALCTL">ALCTL</option><option value="ALJF">ALJF</option><option value="ALKIM">ALKIM</option><option value="ALKA">ALKA</option><option value="ALNTF, ANF">ALNTF, ANF</option><option value="AYCES">AYCES</option><option value="ALMAD">ALMAD</option><option value="ANSGR">ANSGR</option><option value="AEFES">AEFES</option><option value="ANHYT">ANHYT</option><option value="ASUZU">ASUZU</option><option value="ANELE">ANELE</option><option value="ARCLK">ARCLK</option><option value="ARDYZ">ARDYZ</option><option value="ARENA">ARENA</option><option value="ARNFK">ARNFK</option><option value="ARMDA">ARMDA</option><option value="ARSAN">ARSAN</option><option value="ARZUM">ARZUM</option><option value="ASELS">ASELS</option><option value="ATAGY">ATAGY</option><option value="AGYO">AGYO</option><option value="ATLFA">ATLFA</option><option value="ATSYH">ATSYH</option><option value="ATLAS">ATLAS</option><option value="AVISA">AVISA</option><option value="AVGYO">AVGYO</option><option value="AVTUR">AVTUR</option><option value="AVHOL">AVHOL</option><option value="AYDEM">AYDEM</option><option value="AYEN">AYEN</option><option value="AYES">AYES</option><option value="AYGAZ">AYGAZ</option><option value="BAGFS">BAGFS</option><option value="BAKAB">BAKAB</option><option value="BALAT">BALAT</option><option value="BNTAS">BNTAS</option><option value="BANVT">BANVT</option><option value="BSRFK">BSRFK</option><option value="BASCM">BASCM</option><option value="BTCIM">BTCIM</option><option value="BSOKE">BSOKE</option><option value="BAYRK">BAYRK</option><option value="BERA">BERA</option><option value="BRKT">BRKT</option><option value="BRKSN">BRKSN</option><option value="BJKAS">BJKAS</option><option value="BEYAZ">BEYAZ</option><option value="BLCYT">BLCYT</option><option value="BIMAS">BIMAS</option><option value="BIOEN">BIOEN</option><option value="BRKVY">BRKVY</option><option value="BRKO">BRKO</option><option value="BRMEN">BRMEN</option><option value="BIZIM">BIZIM</option><option value="BNPFK">BNPFK</option><option value="BOGVY">BOGVY</option><option value="BRSAN">BRSAN</option><option value="BRYAT">BRYAT</option><option value="BFREN">BFREN</option><option value="BOSSA">BOSSA</option><option value="BRISA">BRISA</option><option value="BURCE">BURCE</option><option value="BURVA">BURVA</option><option value="BUCIM">BUCIM</option><option value="CRFSA">CRFSA</option><option value="CASA">CASA</option><option value="CEOEM">CEOEM</option><option value="CCOLA">CCOLA</option><option value="COSMO">COSMO</option><option value="CRDFA">CRDFA</option><option value="CANTE">CANTE</option><option value="CLEBI">CLEBI</option><option value="CELHA">CELHA</option><option value="CEMAS">CEMAS</option><option value="CEMTS">CEMTS</option><option value="CMBTN">CMBTN</option><option value="CMENT">CMENT</option><option value="CIMSA">CIMSA</option><option value="CUSAN">CUSAN</option><option value="DAGI">DAGI</option><option value="DAGHL">DAGHL</option><option value="DARDL">DARDL</option><option value="DGATE">DGATE</option><option value="DMSAS">DMSAS</option><option value="DENGE">DENGE</option><option value="DENFA">DENFA</option><option value="DNFIN">DNFIN</option><option value="DZGYO">DZGYO</option><option value="DZY, DZYMK">DZY, DZYMK</option><option value="DENIZ, DNZ">DENIZ, DNZ</option><option value="DERIM">DERIM</option><option value="DERHL">DERHL</option><option value="DESA">DESA</option><option value="DESPC">DESPC</option><option value="DEVA">DEVA</option><option value="DEVIR">DEVIR</option><option value="DNISI">DNISI</option><option value="DIRIT">DIRIT</option><option value="DITAS">DITAS</option><option value="DOCO">DOCO</option><option value="DOBUR">DOBUR</option><option value="DOHOL">DOHOL</option><option value="DGKLB">DGKLB</option><option value="DOGUB">DOGUB</option><option value="DGGYO">DGGYO</option><option value="DGHOL">DGHOL</option><option value="DOAS">DOAS</option><option value="DFKTR">DFKTR</option><option value="DOKTA">DOKTA</option><option value="DURDO">DURDO</option><option value="DNYVA">DNYVA</option><option value="DYOBY">DYOBY</option><option value="ECZYT">ECZYT</option><option value="EDIP">EDIP</option><option value="EGEEN">EGEEN</option><option value="EGGUB">EGGUB</option><option value="EGPRO">EGPRO</option><option value="EGSER">EGSER</option><option value="EPLAS">EPLAS</option><option value="ECILC">ECILC</option><option value="EKIZ">EKIZ</option><option value="EKOFA">EKOFA</option><option value="EMKEL">EMKEL</option><option value="EMNIS">EMNIS</option><option value="EKTVK">EKTVK</option><option value="EKGYO">EKGYO</option><option value="ENJSA">ENJSA</option><option value="ENKAI">ENKAI</option><option value="ERBOS">ERBOS</option><option value="EREGL">EREGL</option><option value="ERGLI">ERGLI</option><option value="EROGL">EROGL</option><option value="ERSU">ERSU</option><option value="ESCOM">ESCOM</option><option value="ESEN">ESEN</option><option value="ETILR">ETILR</option><option value="EUKYO">EUKYO</option><option value="EUYO">EUYO</option><option value="ETYAT">ETYAT</option><option value="EUHOL">EUHOL</option><option value="FADE">FADE</option><option value="FMIZP">FMIZP</option><option value="FENER">FENER</option><option value="FIBAF">FIBAF</option><option value="FBB, FBBNK">FBB, FBBNK</option><option value="FLAP">FLAP</option><option value="FONET">FONET</option><option value="FROTO">FROTO</option><option value="FORMT">FORMT</option><option value="FRIGO">FRIGO</option><option value="GWIND">GWIND</option><option value="GSRAY">GSRAY</option><option value="GARFA">GARFA</option><option value="GRFIN">GRFIN</option><option value="GRNYO">GRNYO</option><option value="GEDIK">GEDIK</option><option value="GEDZA">GEDZA</option><option value="GLCVY">GLCVY</option><option value="GENTS">GENTS</option><option value="GEREL">GEREL</option><option value="GLB, GLBMD">GLB, GLBMD</option><option value="GLYHO">GLYHO</option><option value="GOODY">GOODY</option><option value="GOLTS">GOLTS</option><option value="GOZDE">GOZDE</option><option value="GSDDE">GSDDE</option><option value="GSDHO">GSDHO</option><option value="GUBRF">GUBRF</option><option value="GLRYH">GLRYH</option><option value="SAHOL">SAHOL</option><option value="HALKF">HALKF</option><option value="HLGYO">HLGYO</option><option value="HLVKS">HLVKS</option><option value="HATEK">HATEK</option><option value="HDFGS">HDFGS</option><option value="HEKTS">HEKTS</option><option value="HSB, HSBCB">HSB, HSBCB</option><option value="HUBVC">HUBVC</option><option value="HUZFA">HUZFA</option><option value="HURGZ">HURGZ</option><option value="ICB, ICBCT">ICB, ICBCT</option><option value="INVEO">INVEO</option><option value="ISKPL">ISKPL</option><option value="IEYHO">IEYHO</option><option value="IDEAS">IDEAS</option><option value="IDGYO">IDGYO</option><option value="IHEVA">IHEVA</option><option value="IHLGM">IHLGM</option><option value="IHGZT">IHGZT</option><option value="IHLAS">IHLAS</option><option value="IHYAY">IHYAY</option><option value="INDES">INDES</option><option value="INFO, IYF">INFO, IYF</option><option value="INTEM">INTEM</option><option value="IPEKE">IPEKE</option><option value="ISDMR">ISDMR</option><option value="ISFAK">ISFAK</option><option value="ISFIN">ISFIN</option><option value="ISGYO">ISGYO</option><option value="ISGSY">ISGSY</option><option value="ISMEN, IYM">ISMEN, IYM</option><option value="ISYAT">ISYAT</option><option value="ISBIR">ISBIR</option><option value="ITTFH">ITTFH</option><option value="IZTAR">IZTAR</option><option value="IZMDC">IZMDC</option><option value="IZFAS">IZFAS</option><option value="JANTS">JANTS</option><option value="KFEIN">KFEIN</option><option value="KLKIM">KLKIM</option><option value="KALES">KALES</option><option value="KAPTESTAS001, TRAKAPTEST01">KAPTESTAS001, TRAKAPTEST01</option><option value="KAPLM">KAPLM</option><option value="KRDMA, KRDMB, KRDMD">KRDMA, KRDMB, KRDMD</option><option value="KAREL">KAREL</option><option value="KARSN">KARSN</option><option value="KRTEK">KRTEK</option><option value="KARTN">KARTN</option><option value="KATMR">KATMR</option><option value="KNTFA">KNTFA</option><option value="KENT">KENT</option><option value="KERVT">KERVT</option><option value="KRVGD">KRVGD</option><option value="KERVN">KERVN</option><option value="KLGYO">KLGYO</option><option value="KLMSN">KLMSN</option><option value="KFKTF">KFKTF</option><option value="KOCFN">KOCFN</option><option value="KCHOL">KCHOL</option><option value="KNFRT">KNFRT</option><option value="KONTR">KONTR</option><option value="KONYA">KONYA</option><option value="KORDS">KORDS</option><option value="KORTS">KORTS</option><option value="KOZAL">KOZAL</option><option value="KOZAA">KOZAA</option><option value="KRGYO">KRGYO</option><option value="KRSTL">KRSTL</option><option value="KRONT">KRONT</option><option value="KTKVK">KTKVK</option><option value="KSTUR">KSTUR</option><option value="KUYAS">KUYAS</option><option value="KUTPO">KUTPO</option><option value="LIDFA">LIDFA</option><option value="LINK">LINK</option><option value="LOGO">LOGO</option><option value="LKMNH">LKMNH</option><option value="LUKSK">LUKSK</option><option value="MAKTK">MAKTK</option><option value="MARKA">MARKA</option><option value="MAALT">MAALT</option><option value="MRSHL">MRSHL</option><option value="MRGYO">MRGYO</option><option value="MARTI">MARTI</option><option value="MTRKS">MTRKS</option><option value="MAVI">MAVI</option><option value="MZHLD">MZHLD</option><option value="MEGAP">MEGAP</option><option value="MNDRS">MNDRS</option><option value="MEPET">MEPET</option><option value="MBFTR">MBFTR</option><option value="MERIT">MERIT</option><option value="MERKO">MERKO</option><option value="METUR">METUR</option><option value="METRO">METRO</option><option value="MTRYO">MTRYO</option><option value="MGROS">MGROS</option><option value="MIPAZ">MIPAZ</option><option value="MSGYO">MSGYO</option><option value="MPARK">MPARK</option><option value="MMCAS">MMCAS</option><option value="TIRE">TIRE</option><option value="NATEN">NATEN</option><option value="NTGAZ">NTGAZ</option><option value="NTHOL">NTHOL</option><option value="NETAS">NETAS</option><option value="NIBAS">NIBAS</option><option value="NUHCM">NUHCM</option><option value="NUGYO">NUGYO</option><option value="NRHOL">NRHOL</option><option value="NURVK">NURVK</option><option value="NRBNK, NYB">NRBNK, NYB</option><option value="ODAS">ODAS</option><option value="ODB, ODEA">ODB, ODEA</option><option value="OLMIP">OLMIP</option><option value="OPET">OPET</option><option value="ORFIN">ORFIN</option><option value="ORGE">ORGE</option><option value="ORMA">ORMA</option><option value="OMD, OSMEN">OMD, OSMEN</option><option value="OSTIM">OSTIM</option><option value="OTKAR">OTKAR</option><option value="OTOKC">OTOKC</option><option value="OYAKC">OYAKC</option><option value="OYA, OYYAT">OYA, OYYAT</option><option value="OYAYO">OYAYO</option><option value="OYLUM">OYLUM</option><option value="OZKGY">OZKGY</option><option value="OZBAL">OZBAL</option><option value="OZGYO">OZGYO</option><option value="OZRDN">OZRDN</option><option value="PLGAZ">PLGAZ</option><option value="PAMEL">PAMEL</option><option value="PAGYO">PAGYO</option><option value="PAPIL">PAPIL</option><option value="PRKME">PRKME</option><option value="PARSN">PARSN</option><option value="PBT, PBTR">PBT, PBTR</option><option value="PGSUS">PGSUS</option><option value="PEKGY">PEKGY</option><option value="PENGD">PENGD</option><option value="PENTA">PENTA</option><option value="PEGYO">PEGYO</option><option value="PSDTC">PSDTC</option><option value="PETKM">PETKM</option><option value="PKENT">PKENT</option><option value="PHC, PHLLP">PHC, PHLLP</option><option value="PETUN">PETUN</option><option value="PINSU">PINSU</option><option value="PNSUT">PNSUT</option><option value="PKART">PKART</option><option value="POLHO">POLHO</option><option value="POLTK">POLTK</option><option value="PRZMA">PRZMA</option><option value="QNBFF">QNBFF</option><option value="QNBFL">QNBFL</option><option value="QNBVK">QNBVK</option><option value="FNY, QNBFI">FNY, QNBFI</option><option value="FIN, QNBFB">FIN, QNBFB</option><option value="QUAGR">QUAGR</option><option value="RALYH">RALYH</option><option value="RAYSG">RAYSG</option><option value="RYGYO">RYGYO</option><option value="RYSAS">RYSAS</option><option value="RHEAG">RHEAG</option><option value="RODRG">RODRG</option><option value="ROYAL">ROYAL</option><option value="RTALB">RTALB</option><option value="SAFKR">SAFKR</option><option value="SANEL">SANEL</option><option value="SANFM">SANFM</option><option value="SANKO">SANKO</option><option value="SAMAT">SAMAT</option><option value="SARKY">SARKY</option><option value="SARTN">SARTN</option><option value="SASA">SASA</option><option value="SAYAS">SAYAS</option><option value="SEKUR">SEKUR</option><option value="SELEC">SELEC</option><option value="SELGD">SELGD</option><option value="SNKRN">SNKRN</option><option value="SERVE">SERVE</option><option value="SRVGY">SRVGY</option><option value="SEYKM">SEYKM</option><option value="SILVR">SILVR</option><option value="SNGYO">SNGYO</option><option value="SMART">SMART</option><option value="SODSN">SODSN</option><option value="SKTAS">SKTAS</option><option value="SONME">SONME</option><option value="SNPAM">SNPAM</option><option value="SUMAS">SUMAS</option><option value="SZUKI">SZUKI</option><option value="SMRFA">SMRFA</option><option value="SMRVA">SMRVA</option><option value="SEKFA">SEKFA</option><option value="SEKFK">SEKFK</option><option value="SKY, SKYMD">SKY, SKYMD</option><option value="SEK, SKBNK">SEK, SKBNK</option><option value="SOKM">SOKM</option><option value="TOKI">TOKI</option><option value="TCZ, TCZB">TCZ, TCZB</option><option value="TAC, TCRYT">TAC, TCRYT</option><option value="TACTR">TACTR</option><option value="TAMFA">TAMFA</option><option value="TKHOL">TKHOL</option><option value="TATGD">TATGD</option><option value="TAVHL">TAVHL</option><option value="TKURU">TKURU</option><option value="TEBCE">TEBCE</option><option value="TEKTU">TEKTU</option><option value="TKFEN">TKFEN</option><option value="TKNSA">TKNSA</option><option value="TMPOL">TMPOL</option><option value="STK, TRMNK">STK, TRMNK</option><option value="TFNVK">TFNVK</option><option value="TGSAS">TGSAS</option><option value="TOASO">TOASO</option><option value="TRGYO">TRGYO</option><option value="TLMAN">TLMAN</option><option value="TSPOR">TSPOR</option><option value="TDGYO">TDGYO</option><option value="TSGYO">TSGYO</option><option value="TUCLK">TUCLK</option><option value="TUKAS">TUKAS</option><option value="TRCAS">TRCAS</option><option value="TUREX">TUREX</option><option value="TRILC">TRILC</option><option value="FNCLL">FNCLL</option><option value="TCELL">TCELL</option><option value="TBA, TRKSH">TBA, TRKSH</option><option value="TMSN">TMSN</option><option value="TUPRS">TUPRS</option><option value="TEB, TEBNK">TEB, TEBNK</option><option value="THYAO">THYAO</option><option value="PRKAB">PRKAB</option><option value="TTKOM">TTKOM</option><option value="TTRAK">TTRAK</option><option value="TBORG">TBORG</option><option value="TURGG">TURGG</option><option value="GARAN, TGB">GARAN, TGB</option><option value="HALKB, THL">HALKB, THL</option><option value="EXIMB, THR">EXIMB, THR</option><option value="ISATR, ISBTR, ISCTR, ISKUR, TIB">ISATR, ISBTR, ISCTR, ISKUR, TIB</option><option value="KLN, KLNMA">KLN, KLNMA</option><option value="TSK, TSKB">TSK, TSKB</option><option value="TURSG">TURSG</option><option value="SISE">SISE</option><option value="TVB, VAKBN">TVB, VAKBN</option><option value="UFUK">UFUK</option><option value="ULAS">ULAS</option><option value="ULSFA">ULSFA</option><option value="ULUSE">ULUSE</option><option value="ULUUN">ULUUN</option><option value="UMPAS">UMPAS</option><option value="USAK">USAK</option><option value="UTPYA">UTPYA</option><option value="UZERB">UZERB</option><option value="ULKER">ULKER</option><option value="UNLUS, UNS">UNLUS, UNS</option><option value="VAKFA">VAKFA</option><option value="VAKFN">VAKFN</option><option value="VKGYO">VKGYO</option><option value="VKFYO">VKFYO</option><option value="VAKVK">VAKVK</option><option value="VAKKO">VAKKO</option><option value="VANGD">VANGD</option><option value="VERUS">VERUS</option><option value="VERTU">VERTU</option><option value="VESBE">VESBE</option><option value="VESTL">VESTL</option><option value="VKING">VKING</option><option value="YKFKT">YKFKT</option><option value="YKGYO">YKGYO</option><option value="YKR, YKYAT">YKR, YKYAT</option><option value="YKB, YKBNK">YKB, YKBNK</option><option value="YAPRK">YAPRK</option><option value="YATAS">YATAS</option><option value="YAT, YFMEN">YAT, YFMEN</option><option value="YATVK">YATVK</option><option value="YAYLA">YAYLA</option><option value="YDATH">YDATH</option><option value="YGGYO">YGGYO</option><option value="YGYO">YGYO</option><option value="YYAPI">YYAPI</option><option value="YESIL">YESIL</option><option value="YBTAS">YBTAS</option><option value="YONGA">YONGA</option><option value="YKSLN">YKSLN</option><option value="YUNSA">YUNSA</option><option value="ZRGYO">ZRGYO</option><option value="ZKBVK">ZKBVK</option><option value="ZOREN">ZOREN</option><option value="ZORLF">ZORLF</option></select>';
+        container.appendChild(inputGroup);
+        $('.symbol-select').select2();
+        container.appendChild(this);
+      });
+
+      document.getElementById('symbol-form').addEventListener('submit', function() {
+        document.getElementById('loading').style.display = 'block';
+        document.getElementById('symbol-form').style.display = 'none';
+      });
+
+      function validateForm() {
+        var apiKey = document.getElementById('api_key').value;
+        var symbols = document.querySelectorAll('select[name="symbols[]"]');
+        if (!apiKey) {
+            alert('API Key Giriniz');
+            return false;
+        }
+        for (var i = 0; i < symbols.length; i++) {
+            if (!symbols[i].value) {
+                alert('Tüm sembolleri giriniz');
+                return false;
+            }
+        }
+        return true;
+      }
+    </script>
+  </body>
+</html>
