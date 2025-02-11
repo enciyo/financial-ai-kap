@@ -1,98 +1,56 @@
-# Financial AI Analysis
+# Financial AI KAP
 
-This project is a Flask web application that allows users to analyze financial data of companies listed on BIST (Borsa Istanbul) using AI.
+Bu proje, BIST şirketlerinin finansal verilerini analiz etmek için bir Flask uygulaması kullanır.
 
-## Features
+## Gereksinimler
 
-- Input API key and company symbols to fetch financial data.
-- Analyze financial data using AI.
-- Display analysis results and financial data in a user-friendly format.
-
-## Requirements
-
-- Python 3.8+
+- Python 3.7+
 - Flask
 - pandas
-- google-genai
-- pykap
 - markdown
-- Frozen-Flask
+- pykap
 
-## Installation
+## Kurulum
 
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/yourusername/financial-ai-analysis.git
-   cd financial-ai-analysis
-   ```
+1. Depoyu klonlayın:
 
-2. Create a virtual environment and activate it:
-   ```sh
-   python -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-   ```
+    ```sh
+    git clone https://github.com/kullaniciadi/financial-ai-kap.git
+    cd financial-ai-kap
+    ```
 
-3. Install the dependencies:
-   ```sh
-   pip install -r requirements.txt
-   ```
+2. Sanal ortam oluşturun ve etkinleştirin:
 
-4. Set the environment variables:
-   ```sh
-   export FLASK_APP=run.py
-   ```
+    ```sh
+    python -m venv venv
+    source venv/bin/activate  # Windows için: venv\Scripts\activate
+    ```
 
-## Usage
+3. Gerekli paketleri yükleyin:
 
-1. Run the Flask application:
-   ```sh
-   flask run
-   ```
+    ```sh
+    pip install -r requirements.txt
+    ```
 
-2. Open your web browser and go to `http://127.0.0.1:5000`.
+4. Ortam değişkenlerini ayarlayın:
 
-3. Enter your API key and company symbols to analyze the financial data.
+    ```sh
+    export SECRET_KEY='supersecretkey'  # Windows için: set SECRET_KEY=supersecretkey
+    ```
 
-## Deployment
+## Kullanım
 
-### Deploy to GitHub Pages
+1. Uygulamayı başlatın:
 
-1. Freeze the Flask application:
-   ```sh
-   python freeze.py
-   ```
+    ```sh
+    python run.py
+    ```
 
-2. Create a `gh-pages` branch and push the static files:
-   ```sh
-   git checkout --orphan gh-pages
-   git reset --hard
-   git add build/*
-   git commit -m "Deploy to GitHub Pages"
-   git push origin gh-pages
-   ```
+2. Tarayıcınızda `http://127.0.0.1:5000` adresine gidin.
 
-3. Configure GitHub Pages:
-   Go to the repository settings on GitHub, scroll down to the "GitHub Pages" section, and select the `gh-pages` branch as the source.
+3. API anahtarınızı girin ve analiz etmek istediğiniz sembolleri seçin.
 
-Your static site should now be available at `https://yourusername.github.io/financial-ai-analysis`.
+## Notlar
 
-### GitHub Actions Deployment
-
-This project includes a GitHub Actions workflow to automate the freezing and deployment process.
-
-1. Ensure the workflow file is located at `.github/workflows/deploy.yml`.
-
-2. Push your changes to the `main` branch:
-   ```sh
-   git add .
-   git commit -m "Set up GitHub Actions for deployment"
-   git push origin main
-   ```
-
-
-
-
-
-
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.## License3. The GitHub Actions workflow will automatically freeze the Flask application and deploy it to GitHub Pages.
+- API anahtarınızı almak için [Google AI Studio](https://aistudio.google.com/app/apikey) adresini ziyaret edin.
+- Uygulama, sembollerin finansal verilerini almak ve analiz etmek için `pykap` kütüphanesini kullanır.
