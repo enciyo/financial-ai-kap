@@ -73,5 +73,4 @@ def fetch_data_for_symbols(symbols):
     return all_data
 
 
-app.run(debug=os.environ.get('FLASK_DEBUG', False),port=5001)
 
